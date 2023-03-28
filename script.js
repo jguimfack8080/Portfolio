@@ -3,31 +3,6 @@ const nav = document.querySelector('nav');
 const navLinks = document.querySelectorAll('nav a');
 
 // Ajoute un événement de clic à chaque lien de navigation
-navLinks.forEach(link => {
-  link.addEventListener('click', e => {
-    // Empêche le comportement de lien par défaut
-    e.preventDefault();
-    // Récupère l'identifiant de section à partir de l'attribut href du lien
-    const sectionId = link.getAttribute('href');
-    // Défile jusqu'à la section correspondante en douceur
-    document.querySelector(sectionId).scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
-});
-
-// Ajoute une classe active à l'élément de navigation actuel lorsqu'il est dans la vue
-window.addEventListener('scroll', () => {
-  const currentSection = document.querySelector('section.active');
-  const sections = document.querySelectorAll('section');
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - nav.offsetHeight;
-    if (window.scrollY >= sectionTop) {
-      currentSection.classList.remove('active');
-      section.classList.add('active');
-    }
-  });
-});
 
 const projectList = document.getElementById('project-list');
 
